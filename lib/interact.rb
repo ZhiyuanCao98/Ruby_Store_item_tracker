@@ -1,7 +1,10 @@
 require "item"
 
 class Interact
-
+  class Query
+    @@command_list = ['list', 'find', 'add', 'quit']
+    def self.command_list; @@command_list; end
+  end
 
   def initialize(path = nil)
       Item.filepath = path
@@ -34,10 +37,16 @@ class Interact
     conclusion
   end
 
-# Need Modification
+# Need ADD Argument colletor
   def get_command
     print "Input query>>"
     command = gets.chomp
+    until Interact::Query.command_list.include?(command)
+      puts "Failed!!     query_directory: " + Interact::Query.command_list.join(", ")
+      print "Input query>>"
+      command = gets.chomp.downcase.strip
+    end
+    return command
   end
 
 # Need more options
