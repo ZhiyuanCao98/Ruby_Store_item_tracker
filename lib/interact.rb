@@ -22,7 +22,6 @@ class Interact
         puts "Error: Item file"
         exit!
       end
-
   end
 
   def launch!
@@ -37,7 +36,7 @@ class Interact
     conclusion
   end
 
-# Need ADD Argument colletor
+#
   def get_command
     print "Input query>>"
     command = gets.chomp
@@ -52,11 +51,34 @@ class Interact
 # Need more options
   def do_command(command)
     case command
+    when 'add'
+      add
+    when 'list'
+      list
+    when 'find'
+      find
     when 'quit'
       return :quit
     else
       puts "\nI don't understand that command.\n"
     end
+  end
+
+  def add
+    item = Item.add_new_item
+    item.save_item
+  end
+
+  def list
+
+    Item.list
+  end
+
+  def find
+    puts "\nTips: find name; find price; find category"
+    print "Keyword Find >>>"
+    name = gets.chomp.strip
+    Item.find(keyword = "")
   end
 
   def greeting
