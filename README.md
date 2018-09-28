@@ -8,8 +8,8 @@ Using command line to running the file #
 ## >>ruby init.rb
 
 Function:
-add item in the system
-list all item 
-modify the item
-track price of item 
-count the times you login the system 
+##### add item in the system
+##### list all item 
+##### modify the item
+##### track price of item 
+##### count the times you login the system 
