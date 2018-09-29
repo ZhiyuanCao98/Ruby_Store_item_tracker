@@ -73,20 +73,26 @@ class Item
     return arr
   end
 
-  def self.find(keyword)
-    if keyword
-      items = item_array
-      found = items.select do |i|
-        i.name.downcase.include?(keyword.downcase) ||
-        i.category.downcase.include?(keyword.downcase) ||
-        i.price.to_i <= keyword.to_i
-      end
-      print found.each do |item|
-        line = item.name + "\t" + item.categoty + "\t" + item.price + "\n"
-        print line
-    else
-      puts "Can not find it."
-    end
+  def self.find(keyword = "")
+#     if keyword
+#       items = item_array
+#       found = items.select do |i|
+#         i.name.downcase.include?(keyword.downcase) ||
+#         i.category.downcase.include?(keyword.downcase) ||
+#         i.price.to_i <= keyword.to_i
+#       end
+#       print found.each do |item|
+#         line = item.name + "\t" + item.categoty + "\t" + item.price + "\n"
+#         print line
+#     else
+#       puts "Can not find it."
+#     end
+#   end
+# end
+  File.foreach(@@filepath) {|line| lineString = line.to_s
+         if lineString.include? keyword
+            puts lineString
+          end
+        }
   end
 end
-end 

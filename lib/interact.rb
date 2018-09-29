@@ -78,7 +78,7 @@ class Interact
     puts "\nTips: find name; find price; find category"
     print "Keyword Find >>>"
     name = gets.chomp.strip
-    Item.find(keyword = "")
+    Item.find(name)
   end
 
   def greeting
